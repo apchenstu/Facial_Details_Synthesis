@@ -1,4 +1,4 @@
-This is the code repo of facial details synthesis from single input image. Paper [here]([https://arxiv.org/abs/1903.10873](https://arxiv.org/abs/1903.10873)), Supplemental Material: [here](https://arxiv.org/abs/1903.10873).
+This is the code repo of facial details synthesis from single input image. Paper: [here](https://arxiv.org/abs/1903.10873), Supplemental Material: [here](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf).
 
 This repository consists 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*.  The DFDN is based on junyanz's [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix), for the landmark and expression detector, we use a simplify version of [openFace](https://github.com/TadasBaltrusaitis/OpenFace), and our proxyEstimator is modified based on [patrikhuber](https://github.com/patrikhuber)'s fantastic work [eos](https://github.com/patrikhuber/eos) .  We want to thank each of them for their kindly work.
 
