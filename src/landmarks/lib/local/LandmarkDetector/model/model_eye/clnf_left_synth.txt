@@ -1,3 +1,0 @@
-PDM pdms/pdm_28_l_eye_3D_closed.txt
-PatchesCCNF patch_experts/left_ccnf_patches_1.00_synth_lid_.txt
-PatchesCCNF patch_experts/left_ccnf_patches_1.50_synth_lid_.txt

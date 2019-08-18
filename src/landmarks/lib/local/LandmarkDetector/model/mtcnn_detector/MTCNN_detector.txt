@@ -1,3 +1,0 @@
-PNet PNet.dat
-RNet RNet.dat
-ONet ONet.dat

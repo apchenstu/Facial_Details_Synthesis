@@ -1,1 +1,0 @@
-LandmarkDetector clnf_right_synth.txt

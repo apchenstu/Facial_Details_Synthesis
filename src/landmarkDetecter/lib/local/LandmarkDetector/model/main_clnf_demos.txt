@@ -1,0 +1,5 @@
+LandmarkDetector AU_all_best.txt
+LandmarkDetector_part model_eye/main_clnf_synth_left.txt left_eye_28 36 8 37 10 38 12 39 14 40 16 41 18
+LandmarkDetector_part model_eye/main_clnf_synth_right.txt right_eye_28 42 8 43 10 44 12 45 14 46 16 47 18
+DetectionValidator detection_validation/validator_general_68.txt
+DetectorConstaints placeholder 700 0.05 0.05 0.9 0.9

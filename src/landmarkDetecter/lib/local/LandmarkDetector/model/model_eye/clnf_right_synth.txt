@@ -1,0 +1,3 @@
+PDM pdms/pdm_28_eye_3D_closed.txt
+PatchesCCNF patch_experts/ccnf_patches_1.00_synth_lid_.txt
+PatchesCCNF patch_experts/ccnf_patches_1.50_synth_lid_.txt

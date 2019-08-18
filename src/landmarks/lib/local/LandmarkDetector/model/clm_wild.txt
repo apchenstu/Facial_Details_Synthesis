@@ -1,5 +1,0 @@
-PDM pdms/In-the-wild_aligned_PDM_68.txt
-Triangulations tris_68.txt
-PatchesIntensity patch_experts/svr_patches_0.25_wild.txt
-PatchesIntensity patch_experts/svr_patches_0.35_wild.txt
-PatchesIntensity patch_experts/svr_patches_0.5_wild.txt
