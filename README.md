@@ -1,5 +1,3 @@
-
-
 This is the code repo of facial details synthesis from single input image. Paper [here]([https://arxiv.org/abs/1903.10873](https://arxiv.org/abs/1903.10873)), Supplemental Material: [here](https://arxiv.org/abs/1903.10873).
 
 This repository consists 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*.  The DFDN is based on junyanz's [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix), for the landmark and expression detector, we use a simplify version of [openFace](https://github.com/TadasBaltrusaitis/OpenFace), and our proxyEstimator is modified based on [patrikhuber](https://github.com/patrikhuber)'s fantastic work [eos](https://github.com/patrikhuber/eos) .  We want to thank each of them for their kindly work.
@@ -11,7 +9,7 @@ This repository consists 5 individual parts: *DFDN*, *emotionNet*, *landmarkDete
 
 We present a single-image 3D face synthesis technique that can handle challenging facial expressions while recovering fine geometric details. Our technique employs expression analysis for proxy face geometry generation and combines supervised and unsupervised learning for facial detail synthesis. On proxy generation, we conduct emotion prediction to determine a new expression-informed proxy. On detail synthesis, we present a Deep Facial Detail Net (DFDN) based on Conditional Generative Adversarial Net (CGAN) that employs both geometry and appearance loss functions. For geometry, we capture 366 high-quality 3D scans from 122 different subjects under 3 facial expressions. For appearance, we use additional 163K in-the-wild face images and apply image-based rendering to accommodate lighting variations. Comprehensive experiments demonstrate that our framework can produce high-quality 3D faces with realistic details under challenging facial expressions. 
 
-![](https://github.com/apchenstu/SLN-Amodal/blob/master/results/sem-dist-map-demo.png)
+![](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/teaser.png)
 
 
 # Features
@@ -26,18 +24,14 @@ We present a single-image 3D face synthesis technique that can handle challengin
 ## Set up environment
 
 
- 1. We specify python3 and pytorch
+ 1. Install window version *Anaconda Python3.7* and *pytorch*
+ 2. [Optional] Install *tensorflow* and *keras* if you want to use emotion prior
 
-    Or you can use Ananconda to create new environment in root directory by
-    ```bash
-    conda create -n facial_details --file requirement.txt
-    ```
-    
 
 ## Released version
  
 
- 1. Download released package.
+ 1. Download the released package. [released version](https://1drv.ms/u/s!AjyDwSVHuwr8omaBIMsNku1KDPqq?e=C11URL)
  2. Download models and pre-train weights. 
      [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`
      [landmork models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
