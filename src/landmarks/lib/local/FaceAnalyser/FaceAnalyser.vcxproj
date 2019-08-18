@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0E7FC556-0E80-45EA-A876-DDE4C2FEDCD7}</ProjectGuid>
+    <RootNamespace>FaceAnalyser</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\3rdParty\dlib\dlib.props" />
+    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
+    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_x86.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\3rdParty\dlib\dlib.props" />
+    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
+    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_64.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\3rdParty\dlib\dlib.props" />
+    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
+    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_x86.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\3rdParty\dlib\dlib.props" />
+    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
+    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_64.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>./include;$(SolutionDir)lib/local/Utilities/include;$(SolutionDir)lib/local/LandmarkDetector/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PreLinkEvent>
+      <Command>xcopy /I /E /Y /D "$(SolutionDir)lib\local\FaceAnalyser\AU_predictors" "$(OutDir)AU_predictors"</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Command>xcopy /I /E /Y /D "$(SolutionDir)lib\local\FaceAnalyser\AU_predictors" "$(OutDir)AU_predictors"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>./include;$(SolutionDir)lib/local/Utilities/include;$(SolutionDir)lib/local/LandmarkDetector/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>
+      </EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN64;_DEBUG;_LIB;EIGEN_MPL2_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PreLinkEvent>
+      <Command>xcopy /I /E /Y /D "$(SolutionDir)lib\local\FaceAnalyser\AU_predictors" "$(OutDir)AU_predictors"</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Command>xcopy /I /E /Y /D "$(SolutionDir)lib\local\FaceAnalyser\AU_predictors" "$(OutDir)AU_predictors"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <AdditionalIncludeDirectories>./include;$(SolutionDir)lib/local/Utilities/include;$(SolutionDir)lib/local/LandmarkDetector/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx_fa.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Command>xcopy /I /E /Y /D "$(SolutionDir)lib\local\FaceAnalyser\AU_predictors" "$(OutDir)AU_predictors"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <AdditionalIncludeDirectories>./include;$(SolutionDir)lib/local/Utilities/include;$(SolutionDir)lib/local/LandmarkDetector/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>
+      </EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx_fa.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Command>xcopy /I /E /Y /D "$(SolutionDir)lib\local\FaceAnalyser\AU_predictors" "$(OutDir)AU_predictors"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LandmarkDetector\LandmarkDetector.vcxproj">
+      <Project>{bdc1d107-de17-4705-8e7b-cdde8bfb2bf8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.vcxproj">
+      <Project>{8e741ea2-9386-4cf2-815e-6f9b08991eac}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\FaceAnalyserParameters.cpp" />
+    <ClCompile Include="src\stdafx_fa.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\SVM_dynamic_lin.cpp" />
+    <ClCompile Include="src\SVM_static_lin.cpp" />
+    <ClCompile Include="src\SVR_dynamic_lin_regressors.cpp" />
+    <ClCompile Include="src\SVR_static_lin_regressors.cpp" />
+    <ClInclude Include="include\FaceAnalyser.h" />
+    <ClInclude Include="include\FaceAnalyserParameters.h" />
+    <ClInclude Include="include\Face_utils.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClCompile Include="src\FaceAnalyser.cpp" />
+    <ClCompile Include="src\Face_utils.cpp" />
+    <ClInclude Include="include\stdafx_fa.h" />
+    <ClInclude Include="include\SVM_dynamic_lin.h" />
+    <ClInclude Include="include\SVM_static_lin.h" />
+    <ClInclude Include="include\SVR_dynamic_lin_regressors.h" />
+    <ClInclude Include="include\SVR_static_lin_regressors.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
