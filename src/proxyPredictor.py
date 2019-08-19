@@ -153,6 +153,9 @@ def main(args):
         ###################  landmarks  FAC features  ########################
         move_landmark(args.landmark_exe_path,save_path,base_name[0])
         pts_path = os.path.join(save_path, base_name[0] + '.pts')
+        if 0 == os.path.getsize(pts_path):
+            print('! ! Couldn\'t detect faces in the : %s'%img_name)
+            continue
 
 
         #####################   expression pirors  ############################
