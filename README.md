@@ -33,8 +33,11 @@ We present a single-image 3D face synthesis technique that can handle challengin
 
  1. Download the released package. [released version](https://1drv.ms/u/s!AjyDwSVHuwr8omaBIMsNku1KDPqq?e=C11URL)
  2. Download models and pre-train weights. 
+ 
      [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`
+     
      [landmork models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
+     
      [Optional] [emotionNet checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omF7lTcbT6GcxcpN?e=P4kH7N), unzip to `./emotionNet/checkpoints`
      
  3. Install BFM2017
@@ -81,7 +84,7 @@ we suggest you directly download the released package for convenient, if you are
 
 **on the way .....**
 
-
+**the visualizer only support mesh + normalMap, the render will also support displacementMap in near future** 
 
 
 ## Citation
