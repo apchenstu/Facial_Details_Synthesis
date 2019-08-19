@@ -31,7 +31,7 @@ We present a single-image 3D face synthesis technique that can handle challengin
 ## Released version
  
 
- 1. Download the released package. [released version](https://1drv.ms/u/s!AjyDwSVHuwr8omaBIMsNku1KDPqq?e=C11URL)
+ 1. Download the released package. [released version](https://1drv.ms/u/s!AjyDwSVHuwr8omd4mJv0v7zbCYz_?e=RiBTEm)
  2. Download models and pre-train weights. 
  
      [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`
