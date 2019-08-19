@@ -36,10 +36,10 @@ int main(int argv, char **argc)
 	glFinish();
 
 	
-	cv::Mat img = cv::Mat::zeros(cv::Size(render_w, render_h), CV_8UC3);
-	mobjRender->GetTextureData(mobjRender->renderedTexture[0], img.data);
+	//cv::Mat img = cv::Mat::zeros(cv::Size(render_w, render_h), CV_8UC3);
+	//mobjRender->GetTextureData(mobjRender->renderedTexture[0], img.data);
 
-	cv::imwrite(savefile, img);
+	//cv::imwrite(savefile, img);
 
 	return 0;
 }
