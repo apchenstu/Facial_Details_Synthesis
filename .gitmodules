@@ -1,0 +1,6 @@
+[submodule "src/proxyEstimator"]
+	path = src/proxyEstimator
+	url = https://github.com/LansburyCH/eos-expression-aware-proxy.git
+[submodule "src/faceRender"]
+	path = src/faceRender
+	url = https://github.com/gg-z/face_rendering.git
