@@ -37,10 +37,8 @@ def buildPath(path):
         os.mkdir(path)
 
 def load_image(img_path, target_size):
-    img = Image.load(img_path).convert('LA')
-    if img is None:
-        print(img_path)
-    im = np.asarray(img.resize(img, target_size,, Image.ANTIALIAS))
+    img = Image.open(img_path).convert('L')
+    im = np.asarray(img.resize(target_size,Image.ANTIALIAS))
     return im[...,np.newaxis]/255.0*2-1
 
 
@@ -76,7 +74,6 @@ def find_nearest(save_expPath,features,type,k=1):
         dist = np.sum(abs(dictionaryEmotion - features), axis=1)
 
     index = np.argsort(dist)
-    #print(index[0])
     result = BFMexp[index[:k],:]
     if k > 1:
         result = np.mean(result,axis=0)
@@ -121,14 +118,16 @@ def crop(img, areas,args):
     patch = np.zeros((areas.shape[1], 1, args.pacthW, args.pacthW))
     for i in range(patch.shape[0]):
         temp = img[areas[0, i]:areas[0, i] + args.pacthW, areas[1, i]:areas[1, i] + args.pacthW]
-        patch[i, 0] = (temp - np.mean(temp)) / 127.0
+        patch[i, 0] = (temp - np.mean(temp)) * 2
     return torch.FloatTensor(patch)
 
 
 def loadimage(dataroot, args):
-    img = Image.resize(Image.open(dataroot), (args.imageW, args.imageW))
-    hsv, gray = rgb2hsv(img), img.convert('LA')
-    img = np.array(hsv)[...,2]
+    img = Image.open(dataroot)
+    img = img.resize((args.imageW, args.imageW))
+    hsv = np.array(rgb2hsv(img))
+    img = hsv[..., 2]
+
 
     areas = io.loadmat('./DFDN/areas.mat')
     rec = {'forehead': areas['forehead'], 'mouse': areas['mouse'], 'weight': areas['weight']}

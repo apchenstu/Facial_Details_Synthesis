@@ -171,7 +171,7 @@ def main(args):
         landmark_scale = max(img.size[0], img.size[1])/256.0
         save_obj_path = os.path.join(args.output_path, base_name[0], 'result')
         fit_model(args.fitmodel_exe_path, img_name, pts_path, save_obj_path, landmark_scale, save_exp_path)
-        #render_texture(args.render_exe_path, img_name, save_obj_path)
+        render_texture(args.render_exe_path, img_name, save_obj_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
