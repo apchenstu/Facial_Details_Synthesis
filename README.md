@@ -42,7 +42,7 @@ We present a single-image 3D face synthesis technique that can handle challengin
     - install eos by `pip install --force-reinstall eos-py==0.16.1`
     - Download [BFM2017](https://faces.dmi.unibas.ch/bfm/bfm2017.html) and copy `model2017-1_bfm_nomouth.h5` to `./proxyEstimator/bfm2017/`.
 
-    - Run `python convert-bfm2017-to-eos.py` to generate `bfm2017-1_bfm_nomouth.bin` in `bfm2017` folder.
+    - Run `python convert-bfm2017-to-eos.py` to generate `bfm2017-1_bfm_nomouth.bin` in `./proxyEstimator/bfm2017/` folder.
 
  5. Have fun!
 
