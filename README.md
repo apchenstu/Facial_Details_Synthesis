@@ -90,13 +90,19 @@ We present a single-image 3D face synthesis technique that can handle challengin
 We suggest you directly download the released package for convenience. If you are interested in compiling the source code, please go through the following guidelines.
 
 **proxyEstimator**
+
 Refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
 
+
 **faceRender**
+
 Refer to this [repo](https://github.com/gg-z/face_rendering/tree/41b5ea992246dc02768cde715dd39873f0411e13).
+
 Note: The visualizer currently only supports mesh + normalMap, but will also support displacementMap in the near future.
 
+
 **Others**
+
 On the way .....
 
 
