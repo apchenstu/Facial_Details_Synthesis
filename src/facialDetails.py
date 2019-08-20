@@ -278,8 +278,12 @@ def main(args):
         displacementMap, normalMap = predict_details(save_texture_path, args)
 
         displacementMap = (displacementMap+1)/2*65535
+        displacementMap = displacementMap.astype("uint16")
+        array_buffer = displacementMap.tobytes()
+        img = Image.new("I", displacementMap.T.shape)
+        img.frombytes(array_buffer, "raw", "I;16")
         save_path = os.path.join(args.output_path, base_name[0], 'result.displacementmap.png')
-        Image.fromarray(displacementMap.astype('uint16')).save(save_path)
+        img.save(save_path)
 
         normalMap = (normalMap+1)/2*255
         save_path = os.path.join(args.output_path, base_name[0], 'result.normalmap.png')
