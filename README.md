@@ -43,7 +43,7 @@ We present a single-image 3D face synthesis technique that can handle challengin
  
      [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`
      
-     [landmork models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
+     [landmark models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
      
      [Optional] [emotionNet checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omF7lTcbT6GcxcpN?e=P4kH7N), unzip to `./emotionNet/checkpoints`
      
