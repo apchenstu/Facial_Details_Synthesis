@@ -1,6 +1,14 @@
-This is the code repo of facial details synthesis from single input image. Paper: [here](https://arxiv.org/abs/1903.10873), Supplemental Material: [here](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf).
 
-This repository consists 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*.  The DFDN is based on junyanz's [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix), for the landmark and expression detector, we use a simplify version of [openFace](https://github.com/TadasBaltrusaitis/OpenFace), and our proxyEstimator is modified based on [patrikhuber](https://github.com/patrikhuber)'s fantastic work [eos](https://github.com/patrikhuber/eos) .  We want to thank each of them for their kindly work.
+This is the code repo for *Facial Details Synthesis From Single Input Image*. [[Paper](https://arxiv.org/abs/1903.10873)] [[Supplemental Material](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf)]
+
+This repository consists of 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*. 
+
+ - *DFDN* is used to estimate displacement map, and its network architecture is based on junyanz's [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
+ - For *landmarkDetector* and FACS-based expression detector (you can choose between this and *emotionNet*), we use a simplified version of [openFace](https://github.com/TadasBaltrusaitis/OpenFace)
+ - [*proxyEstimator*](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110) is used to generate proxy mesh using expression/emotion prior. It is modified based on [patrikhuber](https://github.com/patrikhuber)'s fantastic work [eos](https://github.com/patrikhuber/eos)
+ - [*faceRender*](https://github.com/gg-z/face_rendering/tree/41b5ea992246dc02768cde715dd39873f0411e13) is used for interactive rendering
+
+We would like to thank each of the related projects for their great work.
 
 
 
@@ -12,40 +20,39 @@ We present a single-image 3D face synthesis technique that can handle challengin
 ![](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/teaser.png)
 
 
-# Features
+## Features
  - **Functionality**
-	 * proxy estimation with expression/emotion prior
-	 * facial details prediction, i.e. winkles
-	 * results visualizer or facial render
-- **Input**: single image or images folder
-- **Output**: proxy mesh & texture, details displacementMap and normalMap
-- **OS**: Window 10
+	 * Proxy estimation with expression/emotion prior
+	 * Facial details prediction, i.e. winkles
+	 * Renderer for results (proxy mesh + normalMap/displacementMap)
+- **Input**: Single image or image folder
+- **Output**: Proxy mesh & texture, detailed displacementMap and normalMap
+- **OS**: Windows 10
 
 ## Set up environment
 
-
- 1. Install window version *Anaconda Python3.7* and *pytorch*
- 2. [Optional] Install *tensorflow* and *keras* if you want to use emotion prior
+ 1. Install windows version of *Anaconda Python3.7* and *pytorch*
+ 2. [Optional] Install *tensorflow* and *keras* if you want to use emotion prior (*emotionNet*)
 
 
 ## Released version
  
 
- 1. Download the released package. [released version](https://1drv.ms/u/s!AjyDwSVHuwr8omd4mJv0v7zbCYz_?e=RiBTEm)
- 2. Download models and pre-train weights. 
+ 1. Download the released package. [Release v0.1.0](https://1drv.ms/u/s!AjyDwSVHuwr8omd4mJv0v7zbCYz_?e=RiBTEm)
+ 2. Download models and pre-trained weights. 
  
      [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`
      
-     [landmork models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
+     [landmark models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
      
      [Optional] [emotionNet checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omF7lTcbT6GcxcpN?e=P4kH7N), unzip to `./emotionNet/checkpoints`
      
  3. Install BFM2017
  
-    - install eos by `pip install --force-reinstall eos-py==0.16.1`
-    - Download [BFM2017](https://faces.dmi.unibas.ch/bfm/bfm2017.html) and copy `model2017-1_bfm_nomouth.h5` to `./proxyEstimator/bfm2017/`.
+    - Install eos-py by `pip install --force-reinstall eos-py==0.16.1`
+    - Download [BFM2017](https://faces.dmi.unibas.ch/bfm/bfm2017.html) and copy `model2017-1_bfm_nomouth.h5` to `./proxyEstimator/bfm2017/`
 
-    - Run `python convert-bfm2017-to-eos.py` to generate `bfm2017-1_bfm_nomouth.bin` in `./proxyEstimator/bfm2017/` folder.
+    - Run `python convert-bfm2017-to-eos.py` to generate `bfm2017-1_bfm_nomouth.bin` in `./proxyEstimator/bfm2017/` folder
 
  5. Have fun!
 
@@ -60,8 +67,8 @@ We present a single-image 3D face synthesis technique that can handle challengin
   - For batch processing, you can set `-i` to a image folder.
 
   - For prior features, you can optional choose one of those two priors: 
-      with facial coding features, type `--FAC 1`, 
-      with emotion features type `--emotion 1`.
+      FACS-based expression prior, `--FAC 1`, 
+      emotion prior, `--emotion 1`.
 
   example: `python proxyPredictor.py -i ./samples/proxy -o ./results`
 
@@ -80,11 +87,23 @@ We present a single-image 3D face synthesis technique that can handle challengin
 
     
 ## Compiling
-we suggest you directly download the released package for convenient, if you are interested in compile the source code, please follow the following guidelines:
+We suggest you directly download the released package for convenience. If you are interested in compiling the source code, please go through the following guidelines.
 
-**on the way .....**
+**proxyEstimator**
 
-**the visualizer only support mesh + normalMap, the render will also support displacementMap in near future** 
+Refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
+
+
+**faceRender**
+
+Refer to this [repo](https://github.com/gg-z/face_rendering/tree/41b5ea992246dc02768cde715dd39873f0411e13).
+
+Note: The visualizer currently only supports mesh + normalMap, but will also support displacementMap in the near future.
+
+
+**Others**
+
+On the way .....
 
 
 ## Citation
@@ -92,10 +111,9 @@ we suggest you directly download the released package for convenient, if you are
 If you find this code useful to your research, please consider citing:
 ```
 @InProceedings{Chen_2019_ICCV,  
-author = {Chen, Anpei and Chen, Zhang and Zhang, Guli and Mitchell, Kenny and Yu, Jingyi},  
-title = {Photo-Realistic Facial Details Synthesis From Single Image},  
-booktitle = {The IEEE International Conference on Computer Vision (ICCV)},  
-month = {Oct},  
-year = {2019}  
+author = {Chen, Anpei and Chen, Zhang and Zhang, Guli and Mitchell, Kenny and Yu, Jingyi},
+title = {Photo-Realistic Facial Details Synthesis From Single Image},
+booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+year = {2019}
 }
 ```
