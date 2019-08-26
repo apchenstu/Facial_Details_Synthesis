@@ -63,6 +63,8 @@ def find_nearest(save_expPath,features,type,k=1):
     global BFMexp
     if 'FAC' == type:
         global dictionaryFAC
+        if features.shape[0]<225:
+            features = features[0]
         feature_use = range(5,21)
         dist = np.sum(abs(dictionaryFAC[:, feature_use] - features[feature_use]), axis=1)+np.sum(abs(dictionaryFAC[:, 2:5] - features[2:5]), axis=1)*10
         
@@ -106,8 +108,8 @@ def render_texture(exepath,imagePath,savePath):
 
     objname = savePath +'.obj'
     savename = savePath +'.isomap.png'
-    camera = savePath
-    cmd = 'faceClip.exe ' +objname +' 3 ' +savename +' 0 ' +imagePath +' ' +camera
+    camera = savePath + '.affine_from_ortho.txt'
+    cmd = 'textureRender.exe ' +objname +' 3 ' +savename +' 0 ' +imagePath +' ' + camera + ' ./shaders'
     os.system(cmd)
     os.chdir(current_path)
 
