@@ -1,4 +1,6 @@
 
+
+
 This is the code repo for *Facial Details Synthesis From Single Input Image*. [[Paper](https://arxiv.org/abs/1903.10873)] [[Supplemental Material](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf)]
 
 This repository consists of 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*. 
@@ -89,17 +91,49 @@ We present a single-image 3D face synthesis technique that can handle challengin
 ## Compiling
 We suggest you directly download the released package for convenience. If you are interested in compiling the source code, please go through the following guidelines.
 
-**proxyEstimator**
+ 1. First, clone the source code,
 
-Refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
+     `git clone https://github.com/apchenstu/Facial_Details_Synthesis.git --recursive`
 
+ 2. cd to the root of each individual model then start compiling,
 
-**faceRender**
+    **landmarkDetector**
+     - Executing the `download_libraries.ps1` and `download_models.ps1` with PowerShell script.
 
-Refer to this [repo](https://github.com/gg-z/face_rendering/tree/41b5ea992246dc02768cde715dd39873f0411e13).
+	- Open `OpenFace.sln` using Visual Studio and compile the code.
 
-Note: The visualizer currently only supports mesh + normalMap, but will also support displacementMap in the near future.
+      After compiling, the excuse file would located in `/x64/Release/FaceLandmarkImg.exe`
 
+	**textureRender**
+    - install with
+	  ```
+       mkdir build
+       cd build
+       cmake -A X64 -D CMAKE_PREFIX_PATH=../thirds ../src
+      ```
+     - Open `textureRender.sln` using Visual Studio and compile the code.
+     
+       After compiling, the excuse file would located in  `Release/textureRender.exe`
+
+    **proxyEstimator**
+
+    - Refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
+
+    **faceRender**
+
+    - Install with
+	  ```
+       mkdir build
+       cd build
+       cmake -A X64 -D CMAKE_PREFIX_PATH=../thirds ../src
+      ```
+     - Open `FaceRendererHM.sln` using Visual Studio and compile the code.
+    
+       After compiling, the excuse file would located in `build\renderer_hm\Release`
+   
+       Note: The visualizer currently only supports mesh + normalMap, but will also support displacementMap in the near future.
+
+After compiling, please download [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`. Then you are free to use.
 
 **Others**
 
@@ -110,10 +144,10 @@ On the way .....
 
 If you find this code useful to your research, please consider citing:
 ```
-@InProceedings{Chen_2019_ICCV,  
-author = {Chen, Anpei and Chen, Zhang and Zhang, Guli and Mitchell, Kenny and Yu, Jingyi},
-title = {Photo-Realistic Facial Details Synthesis From Single Image},
-booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
-year = {2019}
+@article{chen2019photo,
+  title     = {Photo-Realistic Facial Details Synthesis from Single Image},
+  author    = {Anpei Chen, Zhang Chen, Guli Zhang, Ziheng Zhang, Kenny Mitchell and Jingyi Yu},
+  journal   = {arXiv preprint arXiv:1903.10873},
+  year      = {2019}
 }
 ```
