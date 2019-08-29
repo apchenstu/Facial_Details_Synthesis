@@ -1,6 +1,7 @@
 
 
 
+
 This is the code repo for *Facial Details Synthesis From Single Input Image*. [[Paper](https://arxiv.org/abs/1903.10873)] [[Supplemental Material](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf)]
 
 This repository consists of 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*. 
@@ -107,33 +108,48 @@ We suggest you directly download the released package for convenience. If you ar
 	**textureRender**
     - install with
 	  ```
-       mkdir build
-       cd build
+       mkdir build && cd build
        cmake -A X64 -D CMAKE_PREFIX_PATH=../thirds ../src
       ```
+      
      - Open `textureRender.sln` using Visual Studio and compile the code.
      
        After compiling, the excuse file would located in  `Release/textureRender.exe`
 
     **proxyEstimator**
 
-    - Refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
+    - install [vcpkg](https://github.com/Microsoft/vcpkg/)
+    
+    - install package under vcpkg folder: `./vcpkg install opencv boost --triplet x64-windows`
+    
+    
+    - Install with, 
+      ```
+      mkdir build && cd build
+      cmake .. -A X64 -DCMAKE_TOOLCHAIN_FILE=[vcpkg root]\scripts\buildsystems\vcpkg.cmake
+      ```
+      
+    - Open `eos.sln` using Visual Studio and compile the code.
+    
+      After compiling, the excuse file would located in  `Release/textureRender.exe`
+    
+      For more details, please refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
+
 
     **faceRender**
 
     - Install with
 	  ```
-       mkdir build
-       cd build
+       mkdir build && cd build
        cmake -A X64 -D CMAKE_PREFIX_PATH=../thirds ../src
       ```
-     - Open `FaceRendererHM.sln` using Visual Studio and compile the code.
+     - Open `eos.sln` using Visual Studio and compile the code.
     
-       After compiling, the excuse file would located in `build\renderer_hm\Release`
+       After compiling, the excuse file would located in `build\Release`
    
        Note: The visualizer currently only supports mesh + normalMap, but will also support displacementMap in the near future.
 
-After compiling, please download [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`. Then you are free to use.
+      After compiling, please download [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`. Then you are free to use.
 
 **Others**
 
