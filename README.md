@@ -41,14 +41,16 @@ We present a single-image 3D face synthesis technique that can handle challengin
 ## Released version
  
 
- 1. Download the released package. [Release v0.1.0](https://1drv.ms/u/s!AjyDwSVHuwr8omd4mJv0v7zbCYz_?e=RiBTEm)
+ 1. Download the released package. 
+ 
+     Release v0.1.0 [[Google Drive](https://drive.google.com/file/d/1n1gB4bb9TOiFgp8IqfscqFOS3LHzKUIN/view?usp=sharing), [OneDrive](https://1drv.ms/u/s!Ard0t_p4QWIMc5auQCu-G4uKQDo?e=8C9378)]
  2. Download models and pre-trained weights. 
  
-     [DFDN checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omMGWNP0PA-X0ASx?e=E1vWrY), unzip to `./DFDN/checkpoints`
+     DFDN checkpoints [[Google Drive](https://drive.google.com/file/d/1taK985IJr3m15HG1S7k70bvI-SuusYom/view?usp=sharing), [OneDrive](https://1drv.ms/u/s!Ard0t_p4QWIMeVDOvgXWwZJG57I?e=K1tMIV)] unzip to `./DFDN/checkpoints`
      
-     [landmark models](https://1drv.ms/u/s!AjyDwSVHuwr8omVnsY5ophd4yxIr?e=XbVjUr), unzip to `./landmarkDetector`
+     landmark models [[Google Drive](https://drive.google.com/file/d/1rNNkXf372XvtBNiMu4kJe27p9v7nRKgX/view?usp=sharing), [OneDrive](https://1drv.ms/u/s!Ard0t_p4QWIMeJG_0W5UOwTPIM4?e=MSA8BM)] unzip to `./landmarkDetector`
      
-     [Optional] [emotionNet checkpoints](https://1drv.ms/u/s!AjyDwSVHuwr8omF7lTcbT6GcxcpN?e=P4kH7N), unzip to `./emotionNet/checkpoints`
+     [Optional] emotionNet checkpoints [[Google Drive](https://drive.google.com/file/d/1pTz0wqJLwa_QQxxownu5KsifocDLBF-6/view?usp=sharing), [OneDrive](https://1drv.ms/u/s!Ard0t_p4QWIMdwW7nEx0pV0w56I?e=rQta0m)] unzip to `./emotionNet/checkpoints`
      
  3. Install BFM2017
  
