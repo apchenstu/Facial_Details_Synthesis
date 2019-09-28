@@ -90,7 +90,9 @@ We present a single-image 3D face synthesis technique that can handle challengin
   `python facialDetails.py -i ./samples/details -o ./results`
 
 
-    
+  
+* note: we highly suggest you crop input image to a square size. 
+  
 ## Compiling
 We suggest you directly download the released package for convenience. If you are interested in compiling the source code, please go through the following guidelines.
 
@@ -133,7 +135,7 @@ We suggest you directly download the released package for convenience. If you ar
       
     - Open `eos.sln` using Visual Studio and compile the code.
     
-      After compiling, the excuse file would located in  `Release/textureRender.exe`
+      After compiling, the excuse file would located in  `Release/eso.exe`
     
       For more details, please refer to this [repo](https://github.com/LansburyCH/eos-expression-aware-proxy/tree/d8d4c7dfec4784c4f02dc8299bb73b80f81a6110).
 
@@ -145,7 +147,7 @@ We suggest you directly download the released package for convenience. If you ar
        mkdir build && cd build
        cmake -A X64 -D CMAKE_PREFIX_PATH=../thirds ../src
       ```
-     - Open `eos.sln` using Visual Studio and compile the code.
+     - Open `hmrenderer.sln` using Visual Studio and compile the code.
     
        After compiling, the excuse file would located in `build\Release`
    
