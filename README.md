@@ -169,11 +169,11 @@ On the way .....
 
 If you find this code useful to your research, please consider citing:
 ```
-@InProceedings{Chen_2019_ICCV,
-author = {Chen, Anpei and Chen, Zhang and Zhang, Guli and Mitchell, Kenny and Yu, Jingyi},
-title = {Photo-Realistic Facial Details Synthesis From Single Image},
-booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
-month = {October},
-year = {2019}
+@inproceedings{chen2019photo,
+  title={Photo-Realistic Facial Details Synthesis from Single Image},
+  author={Chen, Anpei and Chen, Zhang and Zhang, Guli and Mitchell, Kenny and Yu, Jingyi},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={9429--9439},
+  year={2019}
 }
 ```
