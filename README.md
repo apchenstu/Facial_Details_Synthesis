@@ -2,7 +2,7 @@
 
 
 
-This is the code repo for *Facial Details Synthesis From Single Input Image*. [[Paper](https://arxiv.org/abs/1903.10873)] [[Supplemental Material](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf)]
+This is the code repo for *Facial Details Synthesis From Single Input Image*. [[Paper](https://arxiv.org/abs/1903.10873)] [[Supplemental Material](https://github.com/apchenstu/Facial_Details_Synthesis/blob/master/src/imgs/Supplemental_Material.pdf)] [[Video](https://www.youtube.com/watch?v=HeUyvRtSvfc&t=70s)]
 
 This repository consists of 5 individual parts: *DFDN*, *emotionNet*, *landmarkDetector*, *proxyEstimator* and *faceRender*. 
 
